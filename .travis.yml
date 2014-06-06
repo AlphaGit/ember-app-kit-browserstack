@@ -1,3 +1,11 @@
+env:
+  global:
+    # browserstack username
+    - secure: e2xxpo8zTLL/5nmrC6FySeqybA3VsNz7MoOoIk/FavZLCasuD2yhIwp8JvbSi8ODak5IW69pXYHroKcTD8kD1X6Yh1CWWPyvj6p/J2ZSN8TXhA1W//c9GGdFTWBlv6lOrRh4meGJ22TMSXjParycR/XhAqLGxv7ysJpnkr+Jl+A=
+    # browserstack API key
+    - secure: FIKEbpR553C1qsEYuelLX1csMOtR6G1+9U16Kt7uogcjqnMZKbkxu44EUYtxjLT1V7V1kdua54Rt1rIsTbjE/IOc7+FLdkK2D3XfdiePjb4aglF1lkWYHJANognR3wakpue08oUtsVHTaBDUysEE3yPJYgoybVDAKK13aByA78I=
+    # browserstack password
+    - secure: N9MUwpnF5G81ujTfhiKInN74tAu7tU7JXpcaZxWOJerPDrRHKNXJlp8djHY9T/LznMyYGupL7OgE33g/908FTrZhjyJ9WhWImx3rQL5LM/5IqPUuJMKa26u8JnGSdGBhe6GOnbaZeODqLKOfXM3LMFuq+ZU2Tfz/WacTViyQGfI=
 language: node_js
 node_js:
   - 0.10
@@ -5,3 +13,5 @@ before_script:
   - npm install -g grunt-cli
   - npm install -g bower
   - bower install
+  - mkdir ~/.browserstack
+  - cp BrowserStackTunnel.jar ~/.browserstack/BrowserStackTunnel.jar
