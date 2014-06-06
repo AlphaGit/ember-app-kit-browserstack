@@ -7,6 +7,11 @@ env:
     # browserstack password
     - secure: N9MUwpnF5G81ujTfhiKInN74tAu7tU7JXpcaZxWOJerPDrRHKNXJlp8djHY9T/LznMyYGupL7OgE33g/908FTrZhjyJ9WhWImx3rQL5LM/5IqPUuJMKa26u8JnGSdGBhe6GOnbaZeODqLKOfXM3LMFuq+ZU2Tfz/WacTViyQGfI=
 language: node_js
+install:
+  - npm install --no-optional --loglevel warn
+  - npm install -g bower grunt-cli --no-optional --loglevel warn
+  - npm install -g browserstack-cli --no-optional --loglevel warn
+  - bower install --quiet
 node_js:
   - 0.10
 before_script:
