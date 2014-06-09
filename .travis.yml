@@ -5,7 +5,7 @@ env:
     # browserstack API key
     - secure: "e9zX4nIbOsDOkQcg9kK9PF95+s/+1Nuf3vXFmTygZHkbK7tOpZHqHpKBfAbU2YjY7v85p3R/eKfx/bxRQgdjD3FH7kyH8+O9OxbIZjjXOPtmAQPtSX9tRzc9AnzPNN3NdpIiZjcvTmwtdWocxE6E2XlgVZMUti+U/xDsUP+/Lp4="
     # browserstack password
-    - secure: "OS2g68yqMROkL5O9SgFQpAe80rybQg7yyOs5f3tbyy+Yy60Se7Qn3882OpUOJVlce295IvDeJNFToP/SGV3I2P5Lh8oloKEbek6fdEFQCchHgbsdQ2cG2kyNVjzqyqND2eitDwkyA5wHgenG3re1IzSCu0xmrJOGNKRmS3jO8AY="
+    - secure: "Ca/IpSeMiJorbKOR8bzuzSiK8Sge4hpNyiVi3x57ecc1YWSS8Pm6u3VYUzPSNxTXaZI9tdyAN1lqcC6Gws9+056qefFpcI/WweXCl6BXZT88V55MMn/UxFQcJ45L10RjSwQtHm+2kSVg23fqCCcfn4l2c1+y5zXgeZYKHOTOneQ="
 language: node_js
 node_js:
   - 0.10
