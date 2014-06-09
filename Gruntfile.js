@@ -129,16 +129,30 @@ module.exports = function(grunt) {
   // Testing
   // -------
   grunt.registerTask('test', "Run your apps's tests once. Uses Google Chrome by default.", [
-                     'clean:debug', 'build:debug', 'testem:ci:basic' ]);
+                     'clean:debug',
+                     'build:test',
+                     'expressServer:debug:stub',
+                     'testem:ci:basic'
+                    ]);
 
   grunt.registerTask('test:ci', "Run your app's tests in PhantomJS. For use in continuous integration (i.e. Travis CI).", [
-                     'clean:debug', 'build:debug', 'testem:ci:basic' ]);
+                     'clean:debug',
+                     'build:test',
+                     'expressServer:debug:stub',
+                     'testem:ci:basic'
+                    ]);
 
   grunt.registerTask('test:browsers', "Run your app's tests in multiple browsers (see tasks/options/testem.js for configuration).", [
-                     'clean:debug', 'build:debug', 'testem:ci:browsers' ]);
+                     'clean:debug',
+                     'build:test',
+                     'expressServer:debug:stub',
+                     'testem:ci:browsers'
+                    ]);
 
   grunt.registerTask('test:server', "Alias to `testem:run:basic`. Be sure to install testem first using `npm install -g testem`", [
-                     'testem:run:basic' ]);
+                     'expressServer:debug:stub',
+                     'testem:run:basic'
+                    ]);
 
   // Worker tasks
   // =================================
@@ -154,6 +168,13 @@ module.exports = function(grunt) {
                      'createResultDirectory', // Create directoy beforehand, fixes race condition
                      'fancySprites:create',
                      'concurrent:buildDebug', // Executed in parallel, see config below
+                     ]));
+
+  grunt.registerTask('build:test', filterAvailable([
+                     'jshint:tooling',
+                     'createResultDirectory', // Create directoy beforehand, fixes race condition
+                     'fancySprites:create',
+                     'concurrent:buildTest', // Executed in parallel, see config below
                      ]));
 
   grunt.registerTask('createDistVersion', filterAvailable([
@@ -187,6 +208,12 @@ module.exports = function(grunt) {
         "buildScripts",
         "buildStyles",
         "buildIndexHTML:dist"
+      ],
+      buildTest: [
+        "buildTemplates:debug",
+        "buildScripts",
+        "buildStyles",
+        "buildIndexHTML:test"
       ],
       buildDebug: [
         "buildTemplates:debug",
@@ -245,6 +272,11 @@ module.exports = function(grunt) {
 
   grunt.registerTask('buildIndexHTML:debug', [
                      'preprocess:indexHTMLDebugApp',
+                     'preprocess:indexHTMLDebugTests'
+                     ]);
+
+  grunt.registerTask('buildIndexHTML:test', [
+                     'preprocess:indexHTMLTestApp',
                      'preprocess:indexHTMLDebugTests'
                      ]);
 

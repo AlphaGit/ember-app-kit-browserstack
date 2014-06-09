@@ -16,7 +16,7 @@ module.exports = {
         'tmp/result/**/*.js'
       ],
       launch_in_dev: ['PhantomJS', 'Chrome'],
-      launch_in_ci: ['bs_chrome', 'bs_ipad', 'bs_iphone'],
+      launch_in_ci: ['PhantomJS', 'Chrome', 'bs_chrome', 'bs_ipad', 'bs_iphone'],
 
       on_start: {
         command: 'browserstack tunnel --timeout 120 --user $BROWSERSTACK_USERNAME:$BROWSERSTACK_PASSWORD --key $BROWSERSTACK_KEY localhost:' + (parseInt(process.env.PORT || 7358, 10) + 1).toString(),
@@ -25,15 +25,15 @@ module.exports = {
 
       launchers: {
         bs_chrome: {
-          command: 'browserstack launch --timeout 120 --user $BROWSERSTACK_USERNAME:$BROWSERSTACK_PASSWORD --attach chrome localhost:' + (parseInt(process.env.PORT || 7358, 10) + 1).toString(),
+          command: 'browserstack launch --timeout 120 --user $BROWSERSTACK_USERNAME:$BROWSERSTACK_PASSWORD --attach chrome localhost:8000', // + (parseInt(process.env.PORT || 7358, 10) + 1).toString(),
           protocol: 'browser'
         },
         bs_ipad: {
-          command: 'browserstack launch --timeout 120 --user $BROWSERSTACK_USERNAME:$BROWSERSTACK_PASSWORD --attach "iPad 2 (5.0)" localhost:' + (parseInt(process.env.PORT || 7358, 10) + 1).toString(),
+          command: 'browserstack launch --timeout 120 --user $BROWSERSTACK_USERNAME:$BROWSERSTACK_PASSWORD --attach "iPad 2 (5.0)" localhost:8000', // + (parseInt(process.env.PORT || 7358, 10) + 1).toString(),
           protocol: 'browser'
         },
         bs_iphone: {
-          command: 'browserstack launch --timeout 120 --user $BROWSERSTACK_USERNAME:$BROWSERSTACK_PASSWORD --attach "iPhone 5S" localhost:' + (parseInt(process.env.PORT || 7358, 10) + 1).toString(),
+          command: 'browserstack launch --timeout 120 --user $BROWSERSTACK_USERNAME:$BROWSERSTACK_PASSWORD --attach "iPhone 5S" localhost:8000', // + (parseInt(process.env.PORT || 7358, 10) + 1).toString(),
           protocol: 'browser'
         }
       }      

@@ -3,6 +3,10 @@ module.exports = {
     src : 'app/index.html', dest : 'tmp/result/index.html',
     options: { context: { dist: false, tests: false } }
   },
+  indexHTMLTestApp: {
+    src : 'app/index.html', dest : 'tmp/result/index.html',
+    options: { context: { dist: false, tests: true } }
+  },
   indexHTMLDebugTests: {
     src : 'app/index.html', dest : 'tmp/result/tests/index.html',
     options: { context: { dist: false, tests: true } }
